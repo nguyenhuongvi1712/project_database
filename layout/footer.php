@@ -1,11 +1,11 @@
 <div id="footer-wp">
     <div class="wp-inner">
-        <p id="copyright">© 2018 Copyright unitop.vn</p>
+        <p id="copyright">© Project database</p>
     </div>
 </div>
 </div>
 <div id="menu-respon">
-    <a href="?page=home" title="" class="logo">Vietsoz Shop</a>
+    <a href="?page=home" title="" class="logo">Ismart Shop</a>
     <div id="menu-respon-wp">
         <ul class="" id="main-menu-respon">
             <li>

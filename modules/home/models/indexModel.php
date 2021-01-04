@@ -14,5 +14,20 @@ function get_cart_by_id($id){
     $result = db_fetch_array("SELECT * FROM carts WHERE user_id = {$id}");
     return $result;
 }
+function getListSearch($keyWord){
+    $pattern = "/[0-9]/";
+    $keyWordLower = strtolower($keyWord);
+    if (preg_match($pattern, $keyWord))
+        $sql = "SELECT product_name , product_id from products where (lower(product_name) like '%{$keyWordLower}%' or product_id = {$keyWord}) and status = 1 limit 10";
+    else
+        $sql = "SELECT product_name , product_id from products where lower(product_name) like '%{$keyWordLower}%' and status = 1 limit 10";
+    return db_fetch_array($sql);
+}
+function getBestSellers(){
+    return db_fetch_array("SELECT products.*,sub.sum from products inner join  
+    (select sum(quantity),product_id from payments inner join invoices using (invoice_id) where status =2 group by product_id order by sum desc limit 10) as sub
+    using (product_id) where status = 1 order by sub.sum desc limit 10
+    ");
+}
 
 

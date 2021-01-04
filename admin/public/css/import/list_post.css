@@ -259,3 +259,49 @@
 .form-actions select {
     padding: 4px 10px;
 }
+
+.form-s #searchList {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+}
+
+form.autoSearch {
+    position: relative;
+}
+
+form.autoSearch input[type="text"] {
+    padding: 2px 35px;
+}
+
+.form-s #searchList li a {
+    display: block;
+    color: black;
+}
+
+.form-s #searchList li:hover {
+    font-weight: bold;
+    background-color: #4FA327;
+}
+
+.form-s #searchList li:hover a {
+    color: white;
+}
+
+.form-s #searchList ul {
+    margin-bottom: 0;
+    border: 1px solid #4FA327;
+}
+
+.form-s #searchList li {
+    padding: 5px 8px;
+    border-bottom: 1px solid #4FA327;
+}
+
+#list-item-user li {
+    padding: 5px;
+}
+
+#list-item-user li>p {
+    margin-bottom: 0;
+}

@@ -45,21 +45,21 @@
                                             <li>
                                                 <a href="?mod=product&action=addnew&id=3" title="">Máy tính bảng</a> 
                                             </li>
-                                </ul>
+                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="?page=list_product" title="">Danh sách sản phẩm</a> 
+                                        <a href="?" title="">Danh sách sản phẩm</a> 
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="" title="">Bán hàng</a>
+                                <a href="" title="">Bán hàng  <?php if(getCountInvoice()) echo "<i class=\"fas fa-bell\"></i>"?> </a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="?page=list_order" title="">Danh sách đơn hàng</a> 
+                                        <a href="?mod=invoice" title="">Danh sách đơn hàng</a> 
                                     </li>
                                     <li>
-                                        <a href="?page=list_order" title="">Danh sách khách hàng</a> 
+                                        <a href="?mod=customer" title="">Danh sách khách hàng</a> 
                                     </li>
                                 </ul>
                             </li>
@@ -67,10 +67,18 @@
                                 <a href="" title="">Thống kê</a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="?page=list_order" title="">Sản phẩm</a> 
+                                        <a href="?mod=statistic" title="">Sản phẩm</a> 
                                     </li>
                                     <li>
                                         <a href="?page=list_order" title="">Doanh số, doanh thu</a> 
+                                        <ul class="sub-menu2">
+                                            <li>
+                                                <a href="?mod=statistic&action=turnOver" title="">Doanh số</a> 
+                                            </li>
+                                            <li>
+                                                <a href="?mod=statistic&action=revenue" title="">Doanh thu</a> 
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>

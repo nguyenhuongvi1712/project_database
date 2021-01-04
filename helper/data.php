@@ -15,8 +15,17 @@ function get_list_categories($type){
     else if($type==3)
         return "Máy tính bảng";
 }
-function get_list_product_by_categories_id($type){ 
-    $result = db_fetch_array("SELECT *FROM products WHERE type = {$type} and status = 1");
+function get_list_product_by_categories_id($type,$sort=0){
+    if ($sort==1)
+        $result = db_fetch_array("SELECT products.* from products inner join manipulations using(product_id) where type = {$type} and manipulation_type = 'create' and status = 1  order by manipulation_date desc"); 
+    else if($sort==2)
+        $result = db_fetch_array("SELECT products.* from products inner join manipulations using(product_id) where type = {$type} and manipulation_type = 'create' and status = 1  order by manipulation_date"); 
+    else if($sort==3)
+        $result = db_fetch_array("SELECT *FROM products WHERE type = {$type} and status = 1 order by selling_price desc");
+    else if($sort==4)
+        $result = db_fetch_array("SELECT *FROM products WHERE type = {$type} and status = 1 order by selling_price ");
+    else
+        $result = db_fetch_array("SELECT *FROM products WHERE type = {$type} and status = 1");
     return $result;
 }
 function get_current_username(){

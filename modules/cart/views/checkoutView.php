@@ -1,7 +1,7 @@
 <?php get_header() ;
 if(isset($_POST['checkout'])){
     $address= empty($_POST['address'])?$data['user_if']['address']:addcslashes($_POST['address'],"<>;'");
-    $sql = "INSERT into invoices(user_id,total_price,address,note,date_create,payment_type) values({$data['user_if']['user_id']},{$data['price_total']},'{$address}','{$_POST['note']}',now(),'{$_POST['payment-method']}')";
+    $sql = "INSERT into invoices(user_id,total_price,address,note,date_create,payment_type,total_purchased_price) values({$data['user_if']['user_id']},{$data['price_total']},'{$address}','{$_POST['note']}',now(),'{$_POST['payment-method']}',{$data['sum']})";
     db_query($sql);
     direct_to(base_url("?mod=order"));
 }

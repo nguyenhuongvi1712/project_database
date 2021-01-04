@@ -30,6 +30,11 @@ function is_idproduct($id){
     if (preg_match($pattern, $id))
     return true;
 }
+function is_date($date){
+    $pattern = "/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/";
+    if (preg_match($pattern, $date))
+    return true;
+}
 function set_value($label_field) {
     global $data;
     if (!empty($data['error']) && !isset($data['error'][$label_field])) {
@@ -48,4 +53,5 @@ function form_error($label_field) {
         echo "<span style = \"color:red;\">{$data['error'][$label_field]}</span><br/>";
     }
 }
+
 ?>

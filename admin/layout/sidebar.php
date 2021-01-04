@@ -7,10 +7,21 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item">
-                    <a href="?page=add_product" title="" class="nav-link">Thêm mới</a>
+                    <a  title="" class="nav-link">Thêm mới</a>
+                        <ul class="sub-menu" style="padding-left: 20px;">
+                            <li class="nav-item">
+                                <a href="?mod=product&action=addnew&id=1" class="nav-link">Điện thoại</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?mod=product&action=addnew&id=2" class="nav-link">Laptop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?mod=product&action=addnew&id=3" class="nav-link">Máy tính bảng</a>
+                            </li>
+                        </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="?page=list_product" title="" class="nav-link">Danh sách sản phẩm</a>
+                    <a href="?" title="" class="nav-link">Danh sách sản phẩm</a>
                 </li>
             </ul>
         </li>
@@ -21,10 +32,10 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item">
-                    <a href="?page=list_order" title="" class="nav-link">Danh sách đơn hàng</a>
+                    <a href="?mod=invoice" title="" class="nav-link">Danh sách đơn hàng</a>
                 </li>
                 <li class="nav-item">
-                    <a href="?page=list_customer" title="" class="nav-link">Danh sách khách hàng</a>
+                    <a href="?mod=customer" title="" class="nav-link">Danh sách khách hàng</a>
                 </li>
             </ul>
         </li>
@@ -35,24 +46,18 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item">
-                    <a href="?page=add_slider" title="" class="nav-link">Sản phẩm</a>
+                    <a href="?mod=statistic" title="" class="nav-link">Sản phẩm</a>
                 </li>
                 <li class="nav-item">
                     <a href="?page=list_slider" title="" class="nav-link">Doanh số , doanh thu</a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a href="" title="" class="nav-link nav-toggle">
-                <span class="fa fa-map icon"></span>
-                <span class="title">Slider</span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item">
-                    <a href="?page=list_order" title="" class="nav-link">Thêm mới</a>
-                </li>
-                <li class="nav-item">
-                    <a href="?page=list_customer" title="" class="nav-link">Danh sách slider</a>
+                    <ul class="sub-menu" style="padding-left: 20px;">
+                            <li class="nav-item">
+                                <a href="?mod=statistic&action=turnOver" class="nav-link">Doanh số</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?mod=statistic&action=revenue" class="nav-link">Doanh thu</a>
+                            </li>
+                        </ul>
                 </li>
             </ul>
         </li>

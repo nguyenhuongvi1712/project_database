@@ -1,7 +1,7 @@
 <?php get_header();
 if(isset($_POST['btn-submit'])){
     if (empty($_POST['product-name'])) {
-        $data['error']['product-name'] = 'Tên đăng nhập không được để trống';
+        $data['error']['product-name'] = 'Tên sản phẩm không được để trống';
     }
     if (empty($_POST['product-code'])) {
         $data['error']['product-code'] = 'Mã sản phẩm không được để trống';
@@ -14,7 +14,7 @@ if(isset($_POST['btn-submit'])){
         }
     }
     if (empty($_POST['link_thump'])) {
-        $data['error']['link_thump'] = 'Tên đăng nhập không được để trống';
+        $data['error']['link_thump'] = 'Tên sản phẩm không được để trống';
     }
     if (empty($_POST['selling_price'])) {
         $data['error']['selling_price'] = 'Giá bán không được để trống';
@@ -56,9 +56,12 @@ if(isset($_POST['btn-submit'])){
     if (empty($_POST['time_of_launch'])) {
         $data['error']['time_of_launch'] = 'Thời điểm ra mắt không được để trống';
     }
+    if (empty($_POST['brand'])) {
+        $data['error']['brand'] = 'Thương hiệu không được để trống';
+    }
     if(empty($data['error'])) {
         add_to_product($_POST['product-code'],2,$_POST['selling_price'],$_POST['purchased_price'],$_POST['link_thump'],$_POST['product-name'],$_POST['desc']);
-        add_to_laptop($_POST['product-code'],$_POST['cpu'],$_POST['RAM'],$_POST['hard_drive'],$_POST['screen'],$_POST['graphic_card'],$_POST['connector'],$_POST['operating_system'],$_POST['design'],$_POST['size'],$_POST['time_of_launch']);
+        add_to_laptop($_POST['product-code'],$_POST['cpu'],$_POST['RAM'],$_POST['hard_drive'],$_POST['screen'],$_POST['graphic_card'],$_POST['connector'],$_POST['operating_system'],$_POST['design'],$_POST['size'],$_POST['time_of_launch'],$_POST['brand']);
         addToManipulation($data['id'],$_POST['product-code'],'create');
         phpAlert("Add thành công");
     }
@@ -124,6 +127,9 @@ if(isset($_POST['btn-submit'])){
                         <label for="time_of_launch">Thời điểm ra mắt</label>
                         <input type="text" name="time_of_launch" id="time_of_launch" <?php echo set_value("time_of_launch")?>> 
                         <?php form_error('time_of_launch'); ?> 
+                        <label for="brand">Brand</label>
+                        <input type="text" name="brand" id="brand" <?php  set_value("brand")?>> 
+                        <?php form_error('brand'); ?> 
                         <label for="desc">Chi tiết</label>
                         <textarea name="desc" id="desc" class="ckeditor"><?php set_value_textarea("desc") ?></textarea>
                         <button type="submit" name="btn-submit" id="btn-submit">Thêm mới</button>

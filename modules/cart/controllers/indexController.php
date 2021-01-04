@@ -69,5 +69,6 @@ function checkoutAction(){
     $customer_id = (int) get_customer_id_by_email();
     $data['cart'] = get_list_item_cart($customer_id);
     $data['price_total'] = get_price_total($customer_id);
+    $data['sum'] = getSumPurchasedPrice($customer_id);
     load_view('checkout',$data);
 }

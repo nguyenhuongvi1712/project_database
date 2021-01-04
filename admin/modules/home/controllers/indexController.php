@@ -25,3 +25,19 @@ function editAction() {
     $item = get_user_by_id($id);
     show_array($item);
 }
+function searchAction(){
+    $keyWord = $_POST['keyWord'];
+    $data = getListSearch($keyWord);
+    $listSearch = "";
+    if ($data) {
+        $listSearch = $listSearch."<ul>";
+        foreach ($data as $val) {
+            $listSearch = $listSearch."<li><a href=\"?mod=product&action=update&id={$val['product_id']}&type={$val['type']}\">{$val['product_name']}</a></li>";
+        }
+        $listSearch = $listSearch."</ul>";
+    }
+    else{
+        $listSearch = "<ul><li>Không có kết quả tìm kiếm</li><ul>";
+    }
+    echo $listSearch;
+}

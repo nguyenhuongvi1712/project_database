@@ -104,9 +104,7 @@ $(document).ready(function() {
         <div class="section" id="action-cart-wp">
             <div class="section-detail">
                 <p class="title"> Nhấn vào thanh toán để hoàn tất mua hàng.</p>
-                <a href="?" title="" id="buy-more">Mua tiếp</a><br/>
                 <a href="?mod=cart&action=delall" title="" id="delete-cart">Xóa giỏ hàng</a><br/>
-                <a href="?mod=order" title="" id="delete-cart">Đơn hàng</a>
             </div>
         </div>
         <?php
@@ -115,6 +113,12 @@ $(document).ready(function() {
             echo '<p>Không có sản phẩm nào trong giỏ hàng!</p>';
         }
         ?>
+         <div class="section" id="action-cart-wp">
+            <div class="section-detail">
+                <a href="?" title="" id="buy-more">Mua tiếp</a><br/>
+                <a href="?mod=order" title="" id="delete-cart">Đơn hàng</a>
+            </div>
+        </div>
     </div>
     
 </div>

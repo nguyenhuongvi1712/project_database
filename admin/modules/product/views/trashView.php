@@ -7,11 +7,6 @@ if(isset($_POST['sm_action'])){
 ?>
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#testbutton').click(function(){
-        $('#dialog1').show();
-        // alert('ok');
-        // $('#dialog1').modal('show');
-    })
     $('.edit').click(function() {  
         var id =  $(this).attr('val');
         data = { id: id};
@@ -51,10 +46,6 @@ $(document).ready(function() {
                             <li class="all"><a href="?">Tất cả (<span class="count" id="count-product"><?php echo $data['count']?></span>)</a> |</li>
                             <li class="pending"><a href="?mod=product&action=trash">Thùng rác (<span class="count" id="count-trash"alert(id);><?php echo $data['trashCount']?></span>)</a></li>
                         </ul>
-                        <form method="GET" class="form-s fl-right">
-                            <input type="tealert(id);xt" name="s" id="s">
-                            <input type="submit" name="sm_s" value="Tìm kiếm">
-                        </form>
                     </div>
                     <div class="actions">
                         <form method="POST" action="" class="form-actions">
@@ -78,7 +69,7 @@ $(document).ready(function() {
                                     <td><span class="thead-text">Danh mục</span></td>
                                     <td><span class="thead-text">Giá bán</span></td>
                                     <td><span class="thead-text">Giá nhập</span></td>
-                                    <td><span class="thead-text">Người tạo</span></td>
+                                    <td><span class="thead-text">Người xóa</span></td>
                                     <td><span class="thead-text">Thời gian</span></td>
                                 </tr>
                             </thead>
@@ -96,39 +87,15 @@ $(document).ready(function() {
                                             <a href="" title=""><?php echo $val['product_name']?></a>
                                         </div>
                                         <ul class="list-operation fl-right">
-                                            <div class="modal fade" id="dialog1" role="dialog" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-
-                                                        <div class="modal-header">
-                                                            <!-- <h5 class="modal-title"></h5> -->
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                        </div>
-
-                                                        <div class="modal-body">
-                                                           Bạn có chắc chắn xóa sản phẩm này ?
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                                            <a type="button" class="btn btn-success" href="?mod=product&action=del&id=<?php echo $val['product_id']?>">Xóa</a>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
                                             <li><a title="Hồi phục" class="edit" val="<?php echo $val['product_id']?>"><i class="fas fa-trash-restore" aria-hidden="true"></i></a></li>
-                                            <li><a  data-toggle="modal" data-target="#dialog1" title="Xóa" class="delete" ><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+                                            <li><a title="Xóa" class="delete" href="?mod=product&action=del&id=<?php echo $val['product_id']?>"><i class="fa fa-trash" aria-hidden="true" ></i></a></li>
                                         </ul>
                                     </td>
                                     <td><span class="tbody-text"><?php echo convert_type_catalogy($val['type']) ?></span></td>
                                     <td><span class="tbody-text"><?php echo currency_format($val['selling_price'])?></span></td>
                                     <td><span class="tbody-text"><?php echo currency_format($val['purchased_price'])?></span></td>
-                                    <td><span class="tbody-text">Admin</span></td>
-                                    <td><span class="tbody-text">12-07-2016</span></td>
+                                    <td><span class="tbody-text"><?php echo $val['username'] ?></span></td>
+                                    <td><span class="tbody-text"><?php echo $val['manipulation_date']?></span></td>
                                 </tr>
                             <?php }?>
                             </tbody>
@@ -142,34 +109,8 @@ $(document).ready(function() {
                    
                 </div>
             </div>
-            <div class="section" id="paging-wp">
-                <div class="section-detail clearfix">
-                    <ul id="list-paging" class="fl-right">
-                        <li>
-                            <a href="" title=""><</a>
-                        </li>
-                        <li>
-                            <a href="" title="">1</a>
-                        </li>
-                        <li>
-                            <a href="" title="">2</a>
-                        </li>
-                        <li>
-                            <a href="" title="">3</a>
-                        </li>
-                        <li>
-                            <a href="" title="">></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 </div>
-<!-- <script  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script> -->
+
 <?php get_footer() ?>

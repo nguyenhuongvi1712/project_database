@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 get_header();
 if(isset($_POST['btn-submit'])){
     if(empty($_POST['pass-old'])) $data['error']['pass-old'] = 'Mật khẩu không được để trống';
@@ -21,8 +22,9 @@ if(isset($_POST['btn-submit'])){
             }
             else{
             db_query("UPDATE users set password ='".md5($_POST['pass-new'])."' where user_id = {$data['admin_if']['user_id']}");
-            //phpAlert("Cập nhập mật khẩu thành công");
-            direct_to(base_url("?mod=inforadmin"));
+            phpAlert("Cập nhập mật khẩu thành công");
+            // direct_to(base_url("?mod=inforadmin"));
+            // ob_end_flush();
             }
         }
     }

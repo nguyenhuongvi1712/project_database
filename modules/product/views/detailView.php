@@ -7,6 +7,7 @@ get_header();
     <div class="wp-inner clearfix">
         <?php get_sidebar(); ?>
         <div id="content" class="fl-right">
+        <?php if(!empty($data['product'])&&!empty($data['detail_product'])){ ?>
             <div class="section" id="info-product-wp">
                 <div class="section-detail clearfix">
                     <div class="thumb fl-left">
@@ -28,18 +29,9 @@ get_header();
                             </ul>
                         </div>
                         <div class="num-order-wp">
-                            <!-- <span>Số lượng:</span>
-                            <input type="text" id="num-order" name="num-order" value="1"> -->
                             <a href="?mod=cart&action=add&id=<?php echo $data['product']['product_id'];?>" title="" class="add-to-cart">Thêm giỏ hàng</a>
                             
                         </div>
-                        <!-- <form action="" method="post" class="num-order-wp">
-                            <label for="num-order">Số lượng</label>
-                            <input type="text" id="num-order" name="num-order" value="1">
-                            <input type="submit" value="add-to-cart">
-
-                        </form> -->
-
                     </div>
                 </div>
             </div>
@@ -52,6 +44,7 @@ get_header();
                 </div>
             </div>
         </div>
+        <?php }  else echo "Không tồn tại sản phẩm !"?>
     </div>
 </div>
 <?php get_footer(); ?>

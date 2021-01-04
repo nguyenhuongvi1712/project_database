@@ -1,23 +1,85 @@
 /*HEADER*/
-#header-wp{ border-bottom: 1px solid #bdbdbd;}
-#logo{
+
+#header-wp {
+    border-bottom: 1px solid #bdbdbd;
+    background-color: #f70e0e;
+}
+
+#logo {
     display: block;
     font-family: 'Roboto Bold';
     text-transform: uppercase;
     font-size: 21px;
-    color: #333;
+    color: wheat;
     padding: 20px 10px;
 }
-#btn-cart{ position: relative;}
-#btn-cart{ 
+
+#btn-cart {
+    position: relative;
+}
+
+#btn-cart {
     position: relative;
     display: block;
     padding: 20px 10px;
 }
-#btn-cart #num{
+
+#btn-cart #num {
     position: absolute;
     top: 5px;
     right: 15px;
-    color: #b70000;
+    color: wheat;
     font-family: 'Roboto Medium';
+}
+
+#cart-wp #icon {
+    font-size: 25px;
+    color: wheat;
+}
+
+#search-wp #s {
+    display: inline-block;
+    width: 400px;
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    line-height: normal;
+}
+
+#search-wp {
+    padding: 18px 0px 22px 600px;
+    position: relative;
+}
+
+#search-wp #sm-s {
+    position: relative;
+    left: -4px;
+    display: inline-block;
+    border: none;
+    outline: none;
+    background: #111111;
+    color: #fff;
+    padding: 10px 20px;
+    line-height: 13px;
+    font-size: 13px;
+}
+
+#search-wp #searchList {
+    position: absolute;
+    background-color: white;
+    width: 400px;
+    border: 1px solid #bdbdbd;
+}
+
+#search-wp #searchList ul {
+    margin-bottom: 0;
+}
+
+#search-wp #searchList ul li {
+    padding: 5px 15px;
+}
+
+#search-wp #searchList ul li a {
+    color: #111111;
+    display: block;
 }

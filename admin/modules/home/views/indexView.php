@@ -19,9 +19,6 @@ $(document).ready(function() {
               $('#'+id).addClass('d-none');
               $('#count-product').text(data['count']),
               $('#count-trash').text(data['trashCount'])
-            //   $('#sub_total'+id).text(data['sub_total']);
-            //   $('#total-price span').text(data['total_price']);
-            //   $('#btn-cart span#num').text(data['num']);
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);
@@ -49,9 +46,10 @@ $(document).ready(function() {
                             <li class="all"><a href="?">Tất cả (<span class="count" id="count-product"><?php echo $data['count']?></span>)</a> |</li>
                             <li class="pending"><a href="?mod=product&action=trash">Thùng rác (<span class="count" id="count-trash"><?php echo $data['trashCount']?></span>)</a></li>
                         </ul>
-                        <form method="GET" class="form-s fl-right">
-                            <input type="text" name="s" id="s">
-                            <input type="submit" name="sm_s" value="Tìm kiếm">
+                        <form method="GET" class="form-s fl-right autoSearch" id="productSearch">
+                            <input type="text" name="s" id="s" placeholder="Tìm kiếm theo id hoặc tên">
+                            <div id="searchList">
+                            </div>
                         </form>
                     </div>
                     <div class="actions">
@@ -91,18 +89,18 @@ $(document).ready(function() {
                                     </td>
                                     <td class="clearfix">
                                         <div class="tb-title fl-left">
-                                            <a href="" title=""><?php echo $val['product_name']?></a>
+                                            <a href="?mod=product&action=update&id=<?php echo $val['product_id']?>&type=<?php echo $val['type']?>" title=""><?php echo $val['product_name']?></a>
                                         </div>
                                         <ul class="list-operation fl-right">
-                                            <li><a val="<?php echo $val['product_id']?>" title="Sửa" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                            <li><a href="?mod=product&action=update&id=<?php echo $val['product_id']?>&type=<?php echo $val['type']?>"  title="Sửa" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
                                             <li><a val="<?php echo $val['product_id']?>" title="Xóa" class="delete"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </td>
                                     <td><span class="tbody-text"><?php echo convert_type_catalogy($val['type']) ?></span></td>
                                     <td><span class="tbody-text"><?php echo currency_format($val['selling_price'])?></span></td>
                                     <td><span class="tbody-text"><?php echo currency_format($val['purchased_price'])?></span></td>
-                                    <td><span class="tbody-text">Admin</span></td>
-                                    <td><span class="tbody-text">12-07-2016</span></td>
+                                    <td><span class="tbody-text"><?php echo $val['username'] ?></span></td>
+                                    <td><span class="tbody-text"><?php echo $val['manipulation_date']?></span></td>
                                 </tr>
                             <?php }?>
                             </tbody>
