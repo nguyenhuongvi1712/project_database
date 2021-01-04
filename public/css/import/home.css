@@ -57,6 +57,10 @@
     display: block;
 }
 
+.list-cat .list-item li:hover .thumb {
+    transform: scale(1.02);
+}
+
 .list-cat .list-item li .price {
     font-family: 'Roboto Medium';
     font-weight: normal;

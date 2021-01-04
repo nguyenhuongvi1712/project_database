@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="container text-right mt-3">
-                 <span >Xin chao </span> <?php get_current_username(); ?>
+                 <span >Xin chào </span> <?php get_current_username(); ?>
                  <?php
                     if(get_session('user')==false) echo "<a href=\"?mod=user\">Đăng nhập</a>";
                     else echo "<a href=\"?mod=user&action=logout\" class=\"mr-2\">Đăng xuất</a>";
