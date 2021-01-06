@@ -12,7 +12,7 @@ if(isset($_POST['sm_action'])){
         <div id="content" class="fl-right">
             <div class="section" id="title-page">
                 <div class="clearfix">
-                    <h3 id="index" class="fl-left">Thống kê doanh số</h3>
+                    <h3 id="index" class="fl-left">Thống kê doanh thu</h3>
                 </div>
             </div>
             <div class="section" id="detail-page">

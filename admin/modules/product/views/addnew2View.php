@@ -61,7 +61,7 @@ if(isset($_POST['btn-submit'])){
     }
     if(empty($data['error'])) {
         add_to_product($_POST['product-code'],2,$_POST['selling_price'],$_POST['purchased_price'],$_POST['link_thump'],$_POST['product-name'],$_POST['desc']);
-        add_to_laptop($_POST['product-code'],$_POST['cpu'],$_POST['RAM'],$_POST['hard_drive'],$_POST['screen'],$_POST['graphic_card'],$_POST['connector'],$_POST['operating_system'],$_POST['design'],$_POST['size'],$_POST['time_of_launch'],$_POST['brand']);
+        add_to_laptop($_POST['product-code'],$_POST['cpu'],$_POST['RAM'],$_POST['hard_drive'],$_POST['screen'],$_POST['graphic_Card'],$_POST['connector'],$_POST['hdh'],$_POST['design'],$_POST['size'],$_POST['time_of_launch'],$_POST['brand']);
         addToManipulation($data['id'],$_POST['product-code'],'create');
         phpAlert("Add thành công");
     }

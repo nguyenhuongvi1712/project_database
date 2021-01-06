@@ -23,7 +23,7 @@ function get_list_product_by_categories_id($type,$sort=0){
     else if($sort==3)
         $result = db_fetch_array("SELECT *FROM products WHERE type = {$type} and status = 1 order by selling_price desc");
     else if($sort==4)
-        $result = db_fetch_array("SELECT *FROM products WHERE type = {$type} and status = 1 order by selling_price ");
+        $result = db_fetch_array("SELECT *FROM products WHERE type = {$type} and status = 1 order by selling_price  ");
     else
         $result = db_fetch_array("SELECT *FROM products WHERE type = {$type} and status = 1");
     return $result;

@@ -24,7 +24,7 @@ function add_to_laptop($product_id,$cpu,$ram,$hard_drive,$screen,$graphic_card,$
     db_query($sql);
 }
 function add_to_tablet($product_id,$screen,$battery_capacity,$rear_camera,$front_camera,$damthoai,$ram,$rom,$hdh,$cpu,$weight,$brand){
-    $sql = "INSERT INTO smart_phone values($product_id,'{$screen}','{$battery_capacity}','{$rear_camera}','{$front_camera}','{$damthoai}','{$ram}','{$rom}','{$hdh}','{$cpu}','{$weight}','{$brand}')";
+    $sql = "INSERT INTO tablet values($product_id,'{$screen}','{$battery_capacity}','{$rear_camera}','{$front_camera}','{$damthoai}','{$ram}','{$rom}','{$hdh}','{$cpu}','{$weight}','{$brand}')";
     db_query($sql);
 }
 function check_product_id($id){

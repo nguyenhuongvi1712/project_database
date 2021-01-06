@@ -52,7 +52,7 @@ if(isset($_POST['sm_s'])){
                                 <tr>
                                     <td><span class="tbody-text"><?php echo $i++ ?></h3></span>
                                     <td><span class="tbody-text"><?php echo $val['invoice_id']?></h3></span>
-                                    <td><a href="" title="" class="tbody-text"><?php echo $val['username']?></a></td>
+                                    <td><a href="?mod=customer&action=detail&id=<?php echo $val['user_id']?>" title="" class="tbody-text"><?php echo $val['username']?></a></td>
                                     <td><span class="tbody-text"><?php echo currency_format($val['total_price'])?></span></td>
                                     <td><span class="tbody-text">
                                     <?php

@@ -58,7 +58,7 @@ if(isset($_POST['sm_s'])){
                             <tbody>
                             <?php foreach($data['list'] as $val){ ?>
                                 <tr>
-                                    <td><span class="tbody-text"><?php echo $val['invoice_id']?></h3></span>
+                                    <td><span class="tbody-text"><a href="?mod=invoice&action=detail&id=<?php echo $val['invoice_id']?>"><?php echo $val['invoice_id']?></a> </h3></span>
                                     <td><span class="tbody-text"><?php echo $val['product_id']?></h3></span>
                                     <td>
                                         <div class="tbody-thumb">

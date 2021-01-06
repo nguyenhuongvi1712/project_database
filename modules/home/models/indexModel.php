@@ -25,9 +25,7 @@ function getListSearch($keyWord){
 }
 function getBestSellers(){
     return db_fetch_array("SELECT products.*,sub.sum from products inner join  
-    (select sum(quantity),product_id from payments inner join invoices using (invoice_id) where status =2 group by product_id order by sum desc limit 10) as sub
-    using (product_id) where status = 1 order by sub.sum desc limit 10
-    ");
+    (select sum(quantity),product_id from payments where invoice_id in(select invoice_id from invoices where status =2) group by product_id order by sum desc limit 10) as sub using (product_id) where status = 1 order by sub.sum desc limit 10");
 }
 
 

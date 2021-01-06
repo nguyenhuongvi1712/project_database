@@ -9,7 +9,7 @@ function getListStatisticProduct($option,$from,$to){
         return db_fetch_array("SELECT p.*,product_name,thump_link,delivered_time from payments as p inner join (select invoice_id, delivered_time from invoices where status =2 {$date}) as i using(invoice_id) inner join products using(product_id) order by products.type");
     }
     else if($option==1){
-        //phpAlert("SELECT p.*,product_name,thump_link,delivered_time from payments as p inner join (select invoice_id, delivered_time from invoices where status =2 {$date}) as i using(invoice_id) inner join products using(product_id) order by quantity desc,products.type");
+       // phpAlert("SELECT p.*,product_name,thump_link,delivered_time from payments as p inner join (select invoice_id, delivered_time from invoices where status =2 {$date}) as i using(invoice_id) inner join products using(product_id) order by quantity desc,products.type");
         return db_fetch_array("SELECT p.*,product_name,thump_link,delivered_time from payments as p inner join (select invoice_id, delivered_time from invoices where status =2 {$date}) as i using(invoice_id) inner join products using(product_id) order by quantity desc,products.type");
     }
     else if($option==2){
@@ -33,5 +33,5 @@ function getListRevenue($from=0,$to=0){
     if(!$from&&$to) $date = "and delivered_time <= '{$to}'";
     else if($from&&!$to) $date = "and delivered_time >= '{$from}'";
     else if($from&&$to) $date = "and delivered_time <= '{$to}' and delivered_time >= '{$from}'"; 
-return db_get_row("SELECT sum(total_price) as revenue,sum(total_purchased_price) as cost_of_goods_sold,sum(total_price) -sum(total_purchased_price) as gross_revenue from invoices where status = 2 {$date}");
+    return db_get_row("SELECT sum(total_price) as revenue,sum(total_purchased_price) as cost_of_goods_sold,sum(total_price) -sum(total_purchased_price) as gross_revenue from invoices where status = 2 {$date}");
 }

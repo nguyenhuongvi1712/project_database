@@ -2,8 +2,8 @@
                 <span for="">Thương hiệu</span>
                 <input name="brand[]" id="lenovo" type="checkbox" value="LENOVO"></input>
                 <label for="lenovo">LENOVO</label>
-                <input name="brand[]" id="masstell" type="checkbox" value="MASSTELL"></input>
-                <label for="masstell">MASSTELL</label>
+                <input name="brand[]" id="masstell" type="checkbox" value="MASSTEL"></input>
+                <label for="masstell">MASSTEL</label>
                 <input name="brand[]" id="lg" type="checkbox" value="SAMSUNG"></input>
                 <label for="lg">SAMSUNG</label>
                 <input name="brand[]" id="apple" type="checkbox" value="APPLE"></input>

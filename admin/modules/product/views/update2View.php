@@ -53,7 +53,7 @@ if (isset($_POST['btn-submit'])) {
         <div id="content" class="fl-right">
             <div class="section" id="title-page">
                 <div class="clearfix">
-                    <h3 id="index" class="fl-left">Thêm sản phẩm</h3>
+                    <h3 id="index" class="fl-left">Chỉnh sửa sản phẩm</h3>
                 </div>
             </div>
             <div class="section" id="detail-page">

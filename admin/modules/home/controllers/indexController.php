@@ -20,11 +20,6 @@ function detailAction(){
     load_view('index',$data); 
 }
 
-function editAction() {
-    $id = (int)$_GET['id'];
-    $item = get_user_by_id($id);
-    show_array($item);
-}
 function searchAction(){
     $keyWord = $_POST['keyWord'];
     $data = getListSearch($keyWord);
