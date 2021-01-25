@@ -37,7 +37,10 @@ function searchAction(){
     if ($data) {
         $listSearch = $listSearch."<ul>";
         foreach ($data as $val) {
-            $listSearch = $listSearch."<li><a href=\"?mod=customer&action=detail&id={$val['user_id']}\">{$val['email']}</a></li>";
+            if($val['email'])
+                $listSearch = $listSearch."<li><a href=\"?mod=customer&action=detail&id={$val['user_id']}\">{$val['email']}</a></li>";
+            else
+            $listSearch = $listSearch."<li><a href=\"?mod=customer&action=detail&id={$val['user_id']}\">{$val['username']}</a></li>";
         }
         $listSearch = $listSearch."</ul>";
     }
@@ -45,4 +48,11 @@ function searchAction(){
         $listSearch = "<ul><li>Không có kết quả tìm kiếm</li><ul>";
     }
     echo $listSearch;
+}
+function statitisCustomerAction(){
+    load('helper','format');
+    $data['userCount'] = getCountUser('user');
+    $data['customerCount'] = getCountUser();
+    $data['listCustomer'] = getListStatisticCustomer();
+    load_view('statitis',$data);
 }

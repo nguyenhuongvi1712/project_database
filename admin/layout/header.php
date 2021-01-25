@@ -82,6 +82,17 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="?mod=offlinePayment" title="">Thanh toán</a>
+                                <!-- <ul class="sub-menu">
+                                    <li>
+                                        <a href="?mod=invoice" title=""></a> 
+                                    </li>
+                                    <li>
+                                        <a href="?mod=customer" title="">Danh sách khách hàng</a> 
+                                    </li>
+                                </ul> -->
+                            </li>
                            
                         </ul>
                         <div id="dropdown-user" class="dropdown dropdown-extended fl-right">

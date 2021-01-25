@@ -76,6 +76,7 @@ $(document).ready(function() {
                                     <td><span class="thead-text">Giá nhập</span></td>
                                     <td><span class="thead-text">Người tạo</span></td>
                                     <td><span class="thead-text">Thời gian</span></td>
+                                    <td><span class="thead-text"></span></td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,6 +102,7 @@ $(document).ready(function() {
                                     <td><span class="tbody-text"><?php echo currency_format($val['purchased_price'])?></span></td>
                                     <td><span class="tbody-text"><?php echo $val['username'] ?></span></td>
                                     <td><span class="tbody-text"><?php echo $val['manipulation_date']?></span></td>
+                                    <td><a class="btn btn-success btn-sm" href="?mod=offlinePayment&action=addCart&id=<?php echo $val['product_id']?>">Add</a></td>
                                 </tr>
                             <?php }?>
                             </tbody>

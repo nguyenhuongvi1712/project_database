@@ -76,3 +76,35 @@ function disableInvoice($status){
 function getCountInvoice(){
     return db_get_row("SELECT count(*) from invoices where status = 0;")['count'];
 }
+function getProductById($id){
+    return db_get_row("SELECT *from products where product_id = {$id}");
+}
+function getInfoCart(){
+    $total = 0;
+    $purchased_total = 0;
+    $num = 0;
+    if(!empty($_SESSION['cart'])){
+        foreach($_SESSION['cart'] as $val){
+            $selling_price=getProductById($val['id'])['selling_price'];
+            $purchased_price = getProductById($val['id'])['purchased_price'];
+            $total += $selling_price *  $val['qty'] ;
+            $purchased_total += $purchased_price * $val['qty'];
+            $num += $val['qty'];
+
+        }
+    }
+    $infoCart['total_purchased_price'] = $purchased_total;
+    $infoCart['total'] = $total;
+    $infoCart['num'] = $num;
+    return $infoCart; 
+}
+function createInvoice($userId){
+    $total_price = getInfoCart()['total'];
+    $total_purchased_price = getInfoCart()['total_purchased_price'];
+    foreach($_SESSION['cart'] as $val){
+        db_query("INSERT INTO carts values({$userId},{$val['id']},{$val['qty']})");
+    }
+    $sql = "INSERT into invoices(user_id,total_price,date_create,payment_type,total_purchased_price,delivered_time,status) values({$userId},{$total_price},now(),'direct-payment',{$total_purchased_price},now(),2)";
+    db_query($sql);
+    unset($_SESSION['cart']);
+}

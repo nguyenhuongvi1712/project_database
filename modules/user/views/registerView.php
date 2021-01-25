@@ -20,8 +20,12 @@ if(isset($_POST['btn-register'])){
     }
     if(empty($_POST['address'])) $data['error']['address'] = 'Địa chỉ không được để trống';
     if(empty($data['error'])){
+        $user_id = getIdOfUser($_POST['email']);
         $pw = md5($_POST['password']);
-        $sql = "INSERT INTO users(username,email,password,address,tel_number,gender,type) VALUES ('{$_POST['username']}', '{$_POST['email']}','{$pw}','{$_POST['address']}','{$_POST['tel']}','{$_POST['gender']}',0);";
+        if(getTypeOfUser($_POST['email'])==2)
+            $sql = "UPDATE users set password = '{$pw}',address = '{$_POST['address']}',tel_number = '{$_POST['tel']}',gender = '{$_POST['gender']}',type =0 where email = '{$_POST['email']}'";
+        else
+            $sql = "INSERT INTO users(username,email,password,address,tel_number,gender,type) VALUES ('{$_POST['username']}', '{$_POST['email']}','{$pw}','{$_POST['address']}','{$_POST['tel']}','{$_POST['gender']}',0);";
         db_query($sql);
         direct_to(base_url("?mod=user"));
     }

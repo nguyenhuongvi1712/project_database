@@ -16,7 +16,7 @@ function is_email($email) {
         return true;
 }
 function is_tel($tel){
-    $pattern = "/^0[0-9]{9,10}$/";
+    $pattern = "/^0[0-9]{8,10}$/";
     if (preg_match($pattern, $tel))
         return true;
 }

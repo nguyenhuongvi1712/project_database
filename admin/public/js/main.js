@@ -71,7 +71,66 @@ $(document).ready(function() {
         $('#searchList').fadeOut("fast");
     })
     $(document).on("click", function() {
-        $('#s').val("");
-        $('#searchList').fadeOut("fast");
+            $('#s').val("");
+            $('#searchList').fadeOut("fast");
+        })
+        //CART
+    $('#tabletCart .num-order').change(function() {
+
+        var id = $(this).attr('num-order-id');
+        var qty = $(this).val();
+        var price = $(this).attr('price');
+        data = { id: id, qty: qty, price: price };
+        $.ajax({
+            url: '?mod=offlinePayment&action=updateCart',
+            method: 'POST',
+            data: data,
+            dataType: 'json',
+            success: function(data) {
+                $('#tabletCart #sub_total' + id).text(data['sub_total']);
+                $('#infoCart #total-price').text(data['total_price']);
+                $('#infoCart span#num').text(data['num']);
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            },
+        })
+    });
+    //INFORMATION OF CUSTOMER
+    $('form#infoCustomer input#userId').on("keyup", function() {
+        if ($(this).val().length > 0) {
+            var customerId = $(this).val();
+            data = { id: customerId };
+            $.ajax({
+                url: '?mod=offlinePayment&action=checkAccount',
+                method: 'POST',
+                data: data,
+                dataType: 'json',
+                success: function(data) {
+                    $('#infoCustomer input#username').val(data['username']);
+                    // if ($('#infoCustomer input#username').val() != "")
+                    //     $('#infoCustomer input#username').attr('disabled', 'disabled');
+                    // else
+                    //     $('#infoCustomer input#username').removeAttr("disabled");
+                    $('#infoCustomer input#email').val(data['email']);
+                    // if ($('#infoCustomer input#email').val() != "")
+                    //     $('#infoCustomer input#email').attr('disabled', 'disabled');
+                    // else
+                    //     $('#infoCustomer input#email').removeAttr('disabled');
+                    $('#infoCustomer input#tel_number').val(data['tel_number']);
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                },
+            })
+        } else {
+            // $('#infoCustomer input#username').removeAttr("disabled");
+            // $('#infoCustomer input#email').removeAttr('disabled');
+            $('#infoCustomer input#username').val("");
+            $('#infoCustomer input#email').val("");
+            $('#infoCustomer input#tel_number').val("");
+        }
     })
 });

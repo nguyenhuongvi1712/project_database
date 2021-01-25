@@ -28,8 +28,12 @@ function getListSearch($keyWord){
     $pattern = "/[0-9]/";
     $keyWordLower = strtolower($keyWord);
     if (preg_match($pattern, $keyWord))
-        $sql = "SELECT user_id,email from users where lower(email) like '%{$keyWordLower}%' or user_id = {$keyWord} limit 10";
+        $sql = "SELECT user_id,email,username from users where lower(email) like '%{$keyWordLower}%' or user_id = {$keyWord} or tel_number like '{$keyWordLower}' limit 10";
     else
-        $sql = "SELECT user_id,email from users where lower(email) like '%{$keyWordLower}%' limit 10";
+        $sql = "SELECT user_id,email,username from users where lower(email) like '%{$keyWordLower}%' or tel_number like '{$keyWordLower}' limit 10";
     return db_fetch_array($sql);
+}
+function getListStatisticCustomer(){
+    return db_fetch_array("SELECT users.*,i.sum from users inner join (select sum(total_price),user_id from invoices where status =2 group by (user_id) order by sum limit 10) as i using(user_id) 
+    order by i.sum");
 }

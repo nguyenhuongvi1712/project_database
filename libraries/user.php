@@ -15,7 +15,7 @@ function get_type_of_user($email){
 }
 function check_is_exist_email($email){
     $data = db_get_row("SELECT *FROM users where email='".$email."'");
-    if(!empty($data)) return true;
+    if(!empty($data)&&$data['type']!=2) return true;
     return false;
 }
 function get_customer_id_by_email(){
